@@ -1,0 +1,14 @@
+/* src/components/Games/GameIframe.css */
+.game-iframe {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+iframe {
+  width: 100%;
+  padding: 50px;
+  height: 100vh;
+  border: none;
+}

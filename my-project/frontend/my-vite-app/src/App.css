@@ -1,0 +1,64 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.navbar {
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+.game-selection {
+  padding: 20px;
+  text-align: center;
+}
+
+.games {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.game-card {
+  margin: 10px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.game-card img {
+  width: 100px;
+  height: 100px;
+}
+
+.game-card h3 {
+  margin: 0;
+  padding: 10px;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+}
+
+.game-iframe-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.game-iframe {
+  width: 80%;
+  height: 80%;
+}

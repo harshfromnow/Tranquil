@@ -1,0 +1,36 @@
+/* src/components/GameSelection.css */
+
+.game-selection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  .game-thumbnail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .game-thumbnail img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .game-thumbnail p {
+    text-align: center;
+  }
+  
+  .container {
+    width: 100%;
+  }
+  
+  .grid {
+    display: grid;
+    gap: 1rem; /* Adjust as needed */
+  }
