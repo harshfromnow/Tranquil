@@ -1,20 +1,24 @@
 {
   "version": 2,
-  "projects": {
-    "frontend": {
-      "source": "frontend",
-      "builds": [
-        { "src": "frontend/package.json", "use": "@vercel/static-build" }
-      ],
-      "routes": [
-        { "src": "/(.*)", "dest": "frontend/$1" }
-      ]
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "frontend/dist" }
     },
-    "backend": {
-      "source": "backend",
-      "builds": [
-        { "src": "backend/index.js", "use": "@vercel/node" }
-      ]
+    {
+      "src": "backend/api/journal-entries.js",
+      "use": "@vercel/node"
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/backend/api/journal-entries.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/$1"
+    }
+  ]
 }

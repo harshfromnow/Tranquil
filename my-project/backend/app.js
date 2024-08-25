@@ -3,8 +3,14 @@ const mongoose = require('mongoose');
 const journalEntriesRouter = require('./api/journal-entries');
 
 // MongoDB connection string
-
 const mongoURI = 'mongodb+srv://harshini:tranquil@cluster0.vmfzoqk.mongodb.net/Tranquil?retryWrites=true&w=majority';
+
+mongoose.connection.once('open', () => {
+  console.log('MongoDB connection established');
+}).on('error', (error) => {
+  console.error('MongoDB connection error:', error);
+});
+
 
 // Connect to MongoDB
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })

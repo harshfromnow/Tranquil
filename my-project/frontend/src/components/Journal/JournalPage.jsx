@@ -4,7 +4,7 @@ import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './customCalendar.css';
-import { getJournalEntries } from './journalService';  // Import the API service
+import { getJournalEntries } from './api';  // Import the API service
 
 const localizer = momentLocalizer(moment);
 
