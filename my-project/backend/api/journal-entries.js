@@ -24,15 +24,22 @@ router.post('/journal-entries/:date', async (req, res) => {
   }
 });
 
+// Dynamic route for journal entries with a specific date
+router.get('/journal-entries/:date', async (req, res) => {
+  const { date } = req.params;
 
-// GET: Retrieve all journal entries
-router.get('/journal-entries', async (req, res) => {
   try {
-    const entries = await JournalEntry.find();
-    res.json(entries);
+    // Fetch journal entries for the specific date from your MongoDB database
+    const journalEntry = await JournalEntry.find({ date });
+    
+    if (!journalEntry) {
+      return res.status(404).json({ message: 'No journal entry found for this date' });
+    }
+
+    res.json(journalEntry);
   } catch (error) {
-    console.error('Error fetching journal entries:', error);
-    res.status(500).json({ error: 'Failed to fetch journal entries' });
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
   }
 });
 
