@@ -3,9 +3,10 @@ const router = express.Router();
 const JournalEntry = require('../models/journalEntry');
 
 // POST: Create a new journal entry
-router.post('/journal-entries', async (req, res) => {
-  console.log(req.body); // Debugging line
-  const { date, mood, journalText, recordings } = req.body;
+// POST: Create a new journal entry with a dynamic date
+router.post('/journal-entries/:date', async (req, res) => {
+  const { date } = req.params;
+  const { mood, journalText, recordings } = req.body;
 
   try {
     const newEntry = new JournalEntry({
@@ -22,6 +23,7 @@ router.post('/journal-entries', async (req, res) => {
     res.status(500).json({ error: 'Failed to save journal entry' });
   }
 });
+
 
 // GET: Retrieve all journal entries
 router.get('/journal-entries', async (req, res) => {

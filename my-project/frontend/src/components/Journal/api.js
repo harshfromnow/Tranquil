@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/journal-entries'; // Update this URL if you deploy your backend
+const API_URL = 'http://tranquilback.vercel.app/api/journal-entries'; // Update this URL if you deploy your backend
 
 export const getJournalEntries = async () => {
   try {
