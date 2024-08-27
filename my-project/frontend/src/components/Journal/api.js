@@ -22,9 +22,16 @@ export const getJournalEntryByDate = async (date) => {
   }
 };
 
-export const createJournalEntry = async (entry) => {
+export const createJournalEntry = async (newEntry) => {
+  const { date, journalText, mood, recordings } = newEntry;
+  const apiUrl = `https://tranquilback.vercel.app/api/journal-entries/${date}`;
+
   try {
-    const response = await axios.post(API_URL, entry);
+    const response = await axios.post(apiUrl, {
+      journalText,
+      mood,
+      recordings,
+    });
     return response.data;
   } catch (error) {
     console.error('Error creating journal entry:', error);
